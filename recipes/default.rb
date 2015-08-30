@@ -6,3 +6,9 @@
 #
 # All rights reserved - Do Not Redistribute
 #
+
+package 'httpd'
+
+service 'httpd'
+	action [:enable, :start]
+end

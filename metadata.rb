@@ -1,6 +1,6 @@
 name             'http-hello-world'
 maintainer       'Mandeep Bal'
-maintainer_email 'bal_mandeep@bah.com'
+maintainer_email 'mandeepbal@gmail.com'
 license          'All rights reserved'
 description      'Installs/Configures http-hello-world'
 long_description 'Installs/Configures http-hello-world'

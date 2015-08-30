@@ -1,0 +1,7 @@
+name             'http-hello-world'
+maintainer       'Mandeep Bal'
+maintainer_email 'bal_mandeep@bah.com'
+license          'All rights reserved'
+description      'Installs/Configures http-hello-world'
+long_description 'Installs/Configures http-hello-world'
+version          '0.1.0'

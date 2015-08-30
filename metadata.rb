@@ -1,7 +1,0 @@
-name             'http-hello-world'
-maintainer       'Mandeep Bal'
-maintainer_email 'mandeepbal@gmail.com'
-license          'All rights reserved'
-description      'Installs/Configures http-hello-world'
-long_description 'Installs/Configures http-hello-world'
-version          '0.1.0'

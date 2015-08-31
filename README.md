@@ -27,5 +27,5 @@ region=us-east-1
 ```
 git clone https://github.com/mandeepbal/http-hello-world.git
 cd http-hello-world
-python mytest.py
+python startup.py
 ```

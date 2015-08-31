@@ -6,27 +6,7 @@ import base64
 # Create ec2 resource
 client = boto3.resource('ec2')
 
-# Create VPC
-vpc = client.create_vpc(
-    CidrBlock='10.0.0.0/24',
-    InstanceTenancy='default'
-)
-
-# Modify VPC to enable dns hostnames
-vpc.modify_attribute(
-    EnableDnsSupport={
-        'Value': True
-    },
-    EnableDnsHostnames={
-        'Value': True
-    }
-)
-gateway = client.create_internet_gateway()
-gateway.attach_to_vpc(VpcId=vpc.id)
-subnet = vpc.create_subnet(CidrBlock='10.0.0.0/25')
-
-
-secgrp = vpc.create_security_group(
+secgrp = client.create_security_group(
   GroupName='nginx-sg'+time.strftime("%Y%m%d%H%M%S"),
   Description='Security Group for NGINX Server.'
 )

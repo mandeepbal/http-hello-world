@@ -3,14 +3,30 @@ import time
 import httplib
 import base64
 
+# Create ec2 resource
 client = boto3.resource('ec2')
 
-#vpc = ec2.create_vpc(CidrBlock='10.0.0.0/24')
-#subnet = vpc.create_subnet(CidrBlock='10.0.0.0/25')
-#gateway = ec2.create_internet_gateway()
-#gateway.attach_to_vpc(VpcId=vpc.id)
+# Create VPC
+vpc = client.create_vpc(
+    CidrBlock='10.0.0.0/24',
+    InstanceTenancy='default'
+)
 
-secgrp = client.create_security_group(
+# Modify VPC to enable dns hostnames
+vpc.modify_attribute(
+    EnableDnsSupport={
+        'Value': True
+    },
+    EnableDnsHostnames={
+        'Value': True
+    }
+)
+gateway = client.create_internet_gateway()
+gateway.attach_to_vpc(VpcId=vpc.id)
+subnet = vpc.create_subnet(CidrBlock='10.0.0.0/25')
+
+
+secgrp = vpc.create_security_group(
   GroupName='nginx-sg'+time.strftime("%Y%m%d%H%M%S"),
   Description='Security Group for NGINX Server.'
 )
@@ -36,10 +52,17 @@ nginx = client.create_instances(
 print("waiting for instance to start...instance_id:"+nginx[0].id)
 nginx[0].wait_until_running()
 nginx = client.Instance(nginx[0].id)
+print("waiting for nginx to install, configure, and start ...instance_id:")
+time.sleep(60)
+print("URL of webpage: http://"+nginx.public_ip_address)
 
 conn = httplib.HTTPConnection(nginx.public_ip_address)
 conn.request("GET", "/")
-h1 = conn.getresponse()
-print h1.read()
+httpresponse = conn.getresponse()
+httpresponse = httpresponse.read()
 
-print("URL of webpage: http://"+nginx.public_ip_address)
+if 'Automation for the People' in httpresponse :
+    print("Page Succesfully Created!!")
+else:
+    print("Failed to create webpage!!")
+    nginx.terminate()

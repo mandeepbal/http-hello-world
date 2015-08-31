@@ -5,13 +5,14 @@
     * [pip](https://pip.pypa.io/en/latest/installing.html#install-pip)
     * [Boto3 (AWS Python SDK)](https://aws.amazon.com/sdk-for-python/)
   * AWS Account with API credentials
-    * Create `~/.aws/credentials` file below with your credenitals
+    * Create the 2 files below with your credenitals
+####`~/.aws/credentials` file
 ```
 [default]
 aws_access_key_id = YOUR_ACCESS_KEY
 aws_secret_access_key = YOUR_SECRET_KEY
 ```
-    * Create `~/.aws/config` file below with your credenitals
+####`~/.aws/config` file
 ```
 [default]
 region=us-east-1

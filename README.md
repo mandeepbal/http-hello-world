@@ -11,6 +11,11 @@
 aws_access_key_id = YOUR_ACCESS_KEY
 aws_secret_access_key = YOUR_SECRET_KEY
 ```
+    * Create `~/.aws/config` file below with your credenitals
+```
+[default]
+region=us-east-1
+```
 ## Execution instructions
 ```
 git clone https://github.com/mandeepbal/http-hello-world.git

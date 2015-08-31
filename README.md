@@ -4,8 +4,11 @@
     * [Python](https://www.python.org/downloads/)
     * [pip](https://pip.pypa.io/en/latest/installing.html#install-pip)
     * [Boto3 (AWS Python SDK)](https://aws.amazon.com/sdk-for-python/)
-  * AWS Account with API credentials
-    * Create the 2 files below with your credenitals
+  * AWS Account
+    * Create IAM user with ec2 Full Access and create API keys
+    * Make sure you have a default VPC set for the AWS Account
+      * Also make sure your default subnet will Auto-assign Public IP
+    * Create the 2 files below on your machine and modify the credentials file to reflect YOUR_ACCESS_KEY and YOUR_SECRET_KEY
 
 ###### `~/.aws/credentials` file
 ```

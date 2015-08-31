@@ -6,17 +6,20 @@
     * [Boto3 (AWS Python SDK)](https://aws.amazon.com/sdk-for-python/)
   * AWS Account with API credentials
     * Create the 2 files below with your credenitals
-####`~/.aws/credentials` file
+
+###### `~/.aws/credentials` file
 ```
 [default]
 aws_access_key_id = YOUR_ACCESS_KEY
 aws_secret_access_key = YOUR_SECRET_KEY
 ```
-####`~/.aws/config` file
+
+###### `~/.aws/config` file
 ```
 [default]
 region=us-east-1
 ```
+
 ## Execution instructions
 ```
 git clone https://github.com/mandeepbal/http-hello-world.git
